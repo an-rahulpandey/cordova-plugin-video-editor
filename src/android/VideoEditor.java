@@ -31,6 +31,7 @@ import android.provider.MediaStore;
 import android.util.Log;
 
 import net.ypresto.androidtranscoder.MediaTranscoder;
+import net.ypresto.androidtranscoder.format.MediaFormatStrategyPresets;
 
 /**
  * VideoEditor plugin for Android
@@ -240,7 +241,7 @@ public class VideoEditor extends CordovaPlugin {
                     float videoHeight = Float.parseFloat(mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_HEIGHT));
 
                     MediaTranscoder.getInstance().transcodeVideo(fin.getFD(), outputFilePath,
-                            new CustomAndroidFormatStrategy(videoBitrate, fps, width, height), listener);
+                            MediaFormatStrategyPresets.createAndroid720pStrategy(8000 * 1000, 128 * 1000, 1), listener);
 
                 } catch (Throwable e) {
                     Log.d(TAG, "transcode exception ", e);
