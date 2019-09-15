@@ -5,7 +5,7 @@ repositories{
 }
 
 dependencies {
-    compile 'net.ypresto.androidtranscoder:android-transcoder:0.3.0'
+    compile 'com.github.ypresto:android-transcoder:master-ac94c6b059785bc7440e35422bf18d3a9913e884'
 }
 
 android {
