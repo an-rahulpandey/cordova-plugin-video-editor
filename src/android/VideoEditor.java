@@ -241,7 +241,7 @@ public class VideoEditor extends CordovaPlugin {
                     float videoHeight = Float.parseFloat(mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_HEIGHT));
 
                     MediaTranscoder.getInstance().transcodeVideo(fin.getFD(), outputFilePath,
-                            MediaFormatStrategyPresets.createAndroid720pStrategy(8000 * 1000, 128 * 1000, 1), listener);
+                            new CustomAndroidFormatStrategy(videoBitrate, fps, width, height), listener);
 
                 } catch (Throwable e) {
                     Log.d(TAG, "transcode exception ", e);
